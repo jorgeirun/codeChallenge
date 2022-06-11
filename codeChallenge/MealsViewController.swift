@@ -19,6 +19,8 @@ class MealsViewController: UIViewController {
     var meals : [Meal] = []
     let cellReuseIdentifier = "mealCell"
     var rowSelected : Int?
+    var isSearching = false
+    var searchResults = [Meal]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,13 +53,22 @@ class MealsViewController: UIViewController {
 extension MealsViewController : UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.meals.count;
+        if isSearching {
+            return self.searchResults.count;
+         } else {
+             return self.meals.count;
+         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = mealsTableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! MealsTableViewCell
-        cell.mealsTitle.text = self.meals[indexPath.row].strMeal
-        cell.mealsImage.sd_setImage(with: URL(string: self.meals[indexPath.row].strMealThumb), placeholderImage: UIImage(named: "pleaceholder.jpeg"))
+        if isSearching {
+            cell.mealsTitle.text = self.searchResults[indexPath.row].strMeal
+            cell.mealsImage.sd_setImage(with: URL(string: self.searchResults[indexPath.row].strMealThumb), placeholderImage: UIImage(named: "pleaceholder.jpeg"))
+        } else {
+            cell.mealsTitle.text = self.meals[indexPath.row].strMeal
+            cell.mealsImage.sd_setImage(with: URL(string: self.meals[indexPath.row].strMealThumb), placeholderImage: UIImage(named: "pleaceholder.jpeg"))
+        }
         return cell
     }
     
@@ -74,7 +85,26 @@ extension MealsViewController : UITableViewDataSource, UITableViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showMealsDetailsSegue" {
             let dc = segue.destination as! MealDetailViewController
-            dc.mealId = self.meals[rowSelected!].idMeal
+            if isSearching {
+                dc.mealId = self.searchResults[rowSelected!].idMeal
+            } else {
+                dc.mealId = self.meals[rowSelected!].idMeal
+            }
         }
     }
 }
+
+extension MealsViewController: UISearchBarDelegate {
+     
+     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+         searchResults = meals.filter({$0.strMeal.lowercased().prefix(searchText.count) == searchText.lowercased()})
+         isSearching = true
+         mealsTableView.reloadData()
+     }
+     
+     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+         isSearching = false
+         searchBar.text = ""
+         mealsTableView.reloadData()
+     }
+ }

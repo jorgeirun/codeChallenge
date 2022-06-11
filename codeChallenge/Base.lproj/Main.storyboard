@@ -129,7 +129,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="sVf-uH-PdE">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="132" width="414" height="730"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="mealCell" rowHeight="100" id="FKN-Sh-WHv" customClass="MealsTableViewCell" customModule="codeChallenge" customModuleProvider="target">
@@ -183,14 +183,27 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="dOD-wa-WhS">
+                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="vKh-Aa-GNB"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="zmQ-oI-Seb" id="yLS-SU-Aml"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lOR-Zd-Vb1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="lOR-Zd-Vb1" firstAttribute="trailing" secondItem="sVf-uH-PdE" secondAttribute="trailing" id="OPe-Z8-Hki"/>
-                            <constraint firstItem="sVf-uH-PdE" firstAttribute="top" secondItem="lOR-Zd-Vb1" secondAttribute="top" id="jRw-m4-aRY"/>
-                            <constraint firstItem="sVf-uH-PdE" firstAttribute="leading" secondItem="lOR-Zd-Vb1" secondAttribute="leading" id="mrc-Ra-MQI"/>
-                            <constraint firstItem="lOR-Zd-Vb1" firstAttribute="bottom" secondItem="sVf-uH-PdE" secondAttribute="bottom" id="rLC-TI-gCq"/>
+                            <constraint firstItem="sVf-uH-PdE" firstAttribute="trailing" secondItem="lOR-Zd-Vb1" secondAttribute="trailing" id="BF7-jT-Cui"/>
+                            <constraint firstItem="dOD-wa-WhS" firstAttribute="leading" secondItem="lOR-Zd-Vb1" secondAttribute="leading" id="Y6C-hs-kJr"/>
+                            <constraint firstItem="dOD-wa-WhS" firstAttribute="trailing" secondItem="lOR-Zd-Vb1" secondAttribute="trailing" id="YcO-tu-eUd"/>
+                            <constraint firstItem="sVf-uH-PdE" firstAttribute="bottom" secondItem="lOR-Zd-Vb1" secondAttribute="bottom" id="azc-e6-gfL"/>
+                            <constraint firstItem="dOD-wa-WhS" firstAttribute="top" secondItem="lOR-Zd-Vb1" secondAttribute="top" id="h24-ef-jVA"/>
+                            <constraint firstItem="sVf-uH-PdE" firstAttribute="top" secondItem="dOD-wa-WhS" secondAttribute="bottom" id="rnG-hc-ugb"/>
+                            <constraint firstItem="sVf-uH-PdE" firstAttribute="leading" secondItem="lOR-Zd-Vb1" secondAttribute="leading" id="stE-Tf-qoj"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Meals" id="6F6-QK-sV4"/>
@@ -201,7 +214,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nq3-6t-8P4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1815.9420289855075" y="116.51785714285714"/>
+            <point key="canvasLocation" x="1733" y="117"/>
         </scene>
         <!--Meal-->
         <scene sceneID="EK0-hj-Aw4">
@@ -306,7 +319,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qwz-vz-R0K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2892.753623188406" y="116.51785714285714"/>
+            <point key="canvasLocation" x="2613" y="117"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Fyt-pE-isF">
@@ -324,7 +337,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VHE-Xi-Mlb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-14.492753623188406" y="116.51785714285714"/>
+            <point key="canvasLocation" x="100" y="117"/>
         </scene>
     </scenes>
     <resources>

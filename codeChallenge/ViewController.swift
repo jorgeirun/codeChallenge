@@ -66,11 +66,11 @@ extension ViewController : UITableViewDataSource, UITableViewDelegate {
             cell.categoryTitle.text = self.searchResults[indexPath.row].strCategory
             cell.categoryDetails.text = self.searchResults[indexPath.row].strCategoryDescription
             cell.cagegoryImage.sd_setImage(with: URL(string: self.searchResults[indexPath.row].strCategoryThumb), placeholderImage: UIImage(named: "pleaceholder.jpeg"))
-         } else {
-             cell.categoryTitle.text = self.categories[indexPath.row].strCategory
-             cell.categoryDetails.text = self.categories[indexPath.row].strCategoryDescription
-             cell.cagegoryImage.sd_setImage(with: URL(string: self.categories[indexPath.row].strCategoryThumb), placeholderImage: UIImage(named: "pleaceholder.jpeg"))
-         }
+        } else {
+            cell.categoryTitle.text = self.categories[indexPath.row].strCategory
+            cell.categoryDetails.text = self.categories[indexPath.row].strCategoryDescription
+            cell.cagegoryImage.sd_setImage(with: URL(string: self.categories[indexPath.row].strCategoryThumb), placeholderImage: UIImage(named: "pleaceholder.jpeg"))
+        }
         return cell
     }
     
@@ -86,11 +86,10 @@ extension ViewController : UITableViewDataSource, UITableViewDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showMealsSegue" {
+            let dc = segue.destination as! MealsViewController
             if isSearching {
-                let dc = segue.destination as! MealsViewController
                 dc.mealCategory = self.searchResults[rowSelected!].strCategory
             } else {
-                let dc = segue.destination as! MealsViewController
                 dc.mealCategory = self.categories[rowSelected!].strCategory
             }
         }
