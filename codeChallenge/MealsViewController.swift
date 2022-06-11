@@ -14,9 +14,10 @@ class MealsViewController: UIViewController {
     @IBOutlet weak var mealsTableView: UITableView!
     
     // URLs
-    var mealCategory = ""
-    let mealsURL = "https://www.themealdb.com/api/json/v1/1/filter.php?c="
-    let searchMealsURL = "https://www.themealdb.com/api/json/v1/1/search.php?s="
+    var mealsBy = "" // "category" or "ingredient"
+    var mealTerm = "" // selected category or ingredient
+    let mealsByCategoryURL = "https://www.themealdb.com/api/json/v1/1/filter.php?c="
+    let mealsByIngredientURL = "https://www.themealdb.com/api/json/v1/1/filter.php?i="
     var meals : [Meal] = []
     let cellReuseIdentifier = "mealCell"
     var rowSelected : Int?
@@ -36,11 +37,17 @@ class MealsViewController: UIViewController {
         self.title = "Loading.."
         
         // get categories
-        self.getMealsForCategory()
+        self.getMeals()
     }
     
-    func getMealsForCategory() {
-        let request = AF.request(mealsURL + self.mealCategory)
+    func getMeals() {
+        var selectedURL = ""
+        if mealsBy == "category" {
+            selectedURL = mealsByCategoryURL
+        }else{
+            selectedURL = mealsByIngredientURL
+        }
+        let request = AF.request(selectedURL + self.mealTerm.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)
         request.responseDecodable(of: Meals.self) { (response) in
             guard let items = response.value else { return }
             self.meals = items.all

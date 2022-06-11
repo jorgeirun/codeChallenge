@@ -17,6 +17,10 @@
 		364638982854F5C900AEC887 /* InstructionsSheetViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364638972854F5C900AEC887 /* InstructionsSheetViewcontroller.swift */; };
 		3646389A2854F61200AEC887 /* IngredientsSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364638992854F61200AEC887 /* IngredientsSheetViewController.swift */; };
 		3646705F2853B885008B518C /* MealsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3646705E2853B885008B518C /* MealsTableViewCell.swift */; };
+		366849F728554404004DAB3E /* IngredientSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366849F628554404004DAB3E /* IngredientSearchViewController.swift */; };
+		366849F9285545CF004DAB3E /* Ingredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366849F8285545CF004DAB3E /* Ingredients.swift */; };
+		366849FB285545EC004DAB3E /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366849FA285545EC004DAB3E /* Ingredient.swift */; };
+		366849FD28554820004DAB3E /* IngredientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366849FC28554820004DAB3E /* IngredientTableViewCell.swift */; };
 		36B7F533285388BE001EDAA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B7F532285388BE001EDAA7 /* AppDelegate.swift */; };
 		36B7F535285388BE001EDAA7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B7F534285388BE001EDAA7 /* SceneDelegate.swift */; };
 		36B7F537285388BE001EDAA7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B7F536285388BE001EDAA7 /* ViewController.swift */; };
@@ -60,6 +64,10 @@
 		364638972854F5C900AEC887 /* InstructionsSheetViewcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsSheetViewcontroller.swift; sourceTree = "<group>"; };
 		364638992854F61200AEC887 /* IngredientsSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsSheetViewController.swift; sourceTree = "<group>"; };
 		3646705E2853B885008B518C /* MealsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsTableViewCell.swift; sourceTree = "<group>"; };
+		366849F628554404004DAB3E /* IngredientSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientSearchViewController.swift; sourceTree = "<group>"; };
+		366849F8285545CF004DAB3E /* Ingredients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredients.swift; sourceTree = "<group>"; };
+		366849FA285545EC004DAB3E /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
+		366849FC28554820004DAB3E /* IngredientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientTableViewCell.swift; sourceTree = "<group>"; };
 		36B7F52F285388BE001EDAA7 /* codeChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = codeChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36B7F532285388BE001EDAA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36B7F534285388BE001EDAA7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -153,6 +161,10 @@
 				364638932854DB5400AEC887 /* MealDetailViewController.swift */,
 				364638972854F5C900AEC887 /* InstructionsSheetViewcontroller.swift */,
 				364638992854F61200AEC887 /* IngredientsSheetViewController.swift */,
+				366849F628554404004DAB3E /* IngredientSearchViewController.swift */,
+				366849F8285545CF004DAB3E /* Ingredients.swift */,
+				366849FA285545EC004DAB3E /* Ingredient.swift */,
+				366849FC28554820004DAB3E /* IngredientTableViewCell.swift */,
 			);
 			path = codeChallenge;
 			sourceTree = "<group>";
@@ -439,6 +451,8 @@
 				364638902854CBDC00AEC887 /* Meal.swift in Sources */,
 				3646388E2854CB7B00AEC887 /* Meals.swift in Sources */,
 				3646705F2853B885008B518C /* MealsTableViewCell.swift in Sources */,
+				366849F728554404004DAB3E /* IngredientSearchViewController.swift in Sources */,
+				366849FB285545EC004DAB3E /* Ingredient.swift in Sources */,
 				364638982854F5C900AEC887 /* InstructionsSheetViewcontroller.swift in Sources */,
 				364638842853E09300AEC887 /* Category.swift in Sources */,
 				364638942854DB5400AEC887 /* MealDetailViewController.swift in Sources */,
@@ -447,7 +461,9 @@
 				3646389A2854F61200AEC887 /* IngredientsSheetViewController.swift in Sources */,
 				3646388A285401EA00AEC887 /* CategoryTableViewCell.swift in Sources */,
 				3646388C2854C28D00AEC887 /* MealsViewController.swift in Sources */,
+				366849FD28554820004DAB3E /* IngredientTableViewCell.swift in Sources */,
 				36B7F535285388BE001EDAA7 /* SceneDelegate.swift in Sources */,
+				366849F9285545CF004DAB3E /* Ingredients.swift in Sources */,
 				364638882853F8C800AEC887 /* Categories.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

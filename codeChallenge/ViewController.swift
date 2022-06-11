@@ -12,6 +12,7 @@ import SDWebImage
 class ViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var searchButton: UIBarButtonItem!
     
     //URLs
     let categoriesURL = "https://www.themealdb.com/api/json/v1/1/categories.php"
@@ -47,6 +48,9 @@ class ViewController: UIViewController {
           }
     }
 
+    @IBAction func searchButtonPressed(_ sender: Any) {
+        //
+    }
 }
 
 extension ViewController : UITableViewDataSource, UITableViewDelegate {
@@ -87,10 +91,11 @@ extension ViewController : UITableViewDataSource, UITableViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showMealsSegue" {
             let dc = segue.destination as! MealsViewController
+            dc.mealsBy = "category"
             if isSearching {
-                dc.mealCategory = self.searchResults[rowSelected!].strCategory
+                dc.mealTerm = self.searchResults[rowSelected!].strCategory
             } else {
-                dc.mealCategory = self.categories[rowSelected!].strCategory
+                dc.mealTerm = self.categories[rowSelected!].strCategory
             }
         }
     }
