@@ -90,7 +90,8 @@ class MealDetailViewController: UIViewController, YTPlayerViewDelegate {
     }
     
     func playerViewDidBecomeReady(_ playerView: YTPlayerView) {
-        playerView.playVideo()
+        // autoplay
+        // playerView.playVideo()
     }
     
     @IBAction func instructionsButtonPressed(_ sender: Any) {

@@ -16,6 +16,7 @@ class MealsViewController: UIViewController {
     // URLs
     var mealCategory = ""
     let mealsURL = "https://www.themealdb.com/api/json/v1/1/filter.php?c="
+    let searchMealsURL = "https://www.themealdb.com/api/json/v1/1/search.php?s="
     var meals : [Meal] = []
     let cellReuseIdentifier = "mealCell"
     var rowSelected : Int?
@@ -47,7 +48,7 @@ class MealsViewController: UIViewController {
             self.title = "Meals"
           }
     }
-    
+
 }
 
 extension MealsViewController : UITableViewDataSource, UITableViewDelegate {
