@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     var categories : [Category] = []
     let cellReuseIdentifier = "categoryCell"
     var rowSelected : Int?
+    var isSearching = false
+    var searchResults = [Category]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,14 +52,25 @@ class ViewController: UIViewController {
 extension ViewController : UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.categories.count;
+        if isSearching {
+            return self.searchResults.count;
+         } else {
+             return self.categories.count;
+         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! CategoryTableViewCell
-        cell.categoryTitle.text = self.categories[indexPath.row].strCategory
-        cell.categoryDetails.text = self.categories[indexPath.row].strCategoryDescription
-        cell.cagegoryImage.sd_setImage(with: URL(string: self.categories[indexPath.row].strCategoryThumb), placeholderImage: UIImage(named: "pleaceholder.jpeg"))
+        
+        if isSearching {
+            cell.categoryTitle.text = self.searchResults[indexPath.row].strCategory
+            cell.categoryDetails.text = self.searchResults[indexPath.row].strCategoryDescription
+            cell.cagegoryImage.sd_setImage(with: URL(string: self.searchResults[indexPath.row].strCategoryThumb), placeholderImage: UIImage(named: "pleaceholder.jpeg"))
+         } else {
+             cell.categoryTitle.text = self.categories[indexPath.row].strCategory
+             cell.categoryDetails.text = self.categories[indexPath.row].strCategoryDescription
+             cell.cagegoryImage.sd_setImage(with: URL(string: self.categories[indexPath.row].strCategoryThumb), placeholderImage: UIImage(named: "pleaceholder.jpeg"))
+         }
         return cell
     }
     
@@ -73,9 +86,29 @@ extension ViewController : UITableViewDataSource, UITableViewDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showMealsSegue" {
-            let dc = segue.destination as! MealsViewController
-            dc.mealCategory = self.categories[rowSelected!].strCategory
+            if isSearching {
+                let dc = segue.destination as! MealsViewController
+                dc.mealCategory = self.searchResults[rowSelected!].strCategory
+            } else {
+                let dc = segue.destination as! MealsViewController
+                dc.mealCategory = self.categories[rowSelected!].strCategory
+            }
         }
     }
 
 }
+
+extension ViewController: UISearchBarDelegate {
+     
+     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+         searchResults = categories.filter({$0.strCategory.lowercased().prefix(searchText.count) == searchText.lowercased()})
+         isSearching = true
+         tableView.reloadData()
+     }
+     
+     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+         isSearching = false
+         searchBar.text = ""
+         tableView.reloadData()
+     }
+ }
