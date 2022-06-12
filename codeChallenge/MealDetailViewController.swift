@@ -33,6 +33,14 @@ class MealDetailViewController: UIViewController, YTPlayerViewDelegate {
         // other
         self.title = "Loading.."
         
+        // style
+        mealCategory.textColor = .label
+        mealArea.textColor = .label
+        mealTitle.textColor = .label
+        mealTags.textColor = .label
+        mealInstructionsButton.layer.cornerRadius = 20
+        mealIngredientsButton.layer.cornerRadius = 20
+
         // get meal details
         self.getMealsById()
     }
@@ -49,14 +57,15 @@ class MealDetailViewController: UIViewController, YTPlayerViewDelegate {
         let meal = meals[0]
         self.title = meal.strMeal
         
+        self.mealImage.layer.cornerRadius = 10
         self.mealImage.sd_setImage(with: URL(string: meal.strMealThumb), placeholderImage: UIImage(named: "pleaceholder.jpeg"))
         
-        self.mealCategory.text = "Category: \(meal.strCategory ?? "")"
-        self.mealArea.text = "Area: \(meal.strArea ?? "")"
+        self.mealCategory.text = "Category: \(meal.strCategory ?? "None")"
+        self.mealArea.text = "Area: \(meal.strArea ?? "Unknown")"
         self.mealTitle.text = "Name: \(meal.strMeal)"
-        self.mealTags.text = "Tags: \(meal.strTags ?? "")"
+        self.mealTags.text = "Tags: \(meal.strTags ?? "None")"
         
-        self.instructions = meal.strInstructions
+        self.instructions = "Instructions: \n\n \(meal.strInstructions ?? "None")"
 
         // this is needed due to bad API design
         self.ingredients = "Ingredients: \n\n"

@@ -48,7 +48,9 @@ extension IngredientSearchViewController : UITableViewDataSource, UITableViewDel
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! IngredientTableViewCell
-        
+
+        cell.ingredientTitle.textColor = .label
+
         if isSearching {
             cell.ingredientTitle.text = self.searchResults[indexPath.row].strIngredient
         } else {

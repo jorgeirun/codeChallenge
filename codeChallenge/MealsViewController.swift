@@ -52,7 +52,7 @@ class MealsViewController: UIViewController {
             guard let items = response.value else { return }
             self.meals = items.all
             self.mealsTableView.reloadData()
-            self.title = "Meals"
+            self.title = self.mealTerm
           }
     }
 
@@ -70,6 +70,10 @@ extension MealsViewController : UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = mealsTableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! MealsTableViewCell
+
+        cell.mealsTitle.textColor = .label
+        cell.mealsImage.layer.cornerRadius = 10
+
         if isSearching {
             cell.mealsTitle.text = self.searchResults[indexPath.row].strMeal
             cell.mealsImage.sd_setImage(with: URL(string: self.searchResults[indexPath.row].strMealThumb), placeholderImage: UIImage(named: "pleaceholder.jpeg"))

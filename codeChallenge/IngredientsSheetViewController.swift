@@ -15,6 +15,7 @@ class IngredientsSheetViewController: UIViewController {
             let label = UILabel()
             label.font = .systemFont(ofSize: 15)
             label.numberOfLines = 0
+            label.textColor = .black
             label.translatesAutoresizingMaskIntoConstraints = false
             return label
         }()

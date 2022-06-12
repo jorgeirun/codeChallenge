@@ -66,6 +66,9 @@ extension ViewController : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! CategoryTableViewCell
         
+        cell.categoryTitle.textColor = .label
+        cell.categoryDetails.textColor = .label
+        
         if isSearching {
             cell.categoryTitle.text = self.searchResults[indexPath.row].strCategory
             cell.categoryDetails.text = self.searchResults[indexPath.row].strCategoryDescription
